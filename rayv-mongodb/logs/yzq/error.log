@@ -1,0 +1,4 @@
+[16:22:59:742] [ERROR] - com.broada.one.controller.BBSController.saveReview(BBSController.java:41) - 保存评论出错
+[16:25:50:159] [ERROR] - com.broada.one.controller.BBSController.saveReview(BBSController.java:41) - 保存评论出错
+[16:57:53:675] [ERROR] - com.broada.one.controller.BBSController.getBBSDetails(BBSController.java:49) - 查询文章id为123
+[16:57:53:676] [ERROR] - com.broada.one.controller.BBSController.getBBSDetails(BBSController.java:50) - 通过id查询文章及评论出错

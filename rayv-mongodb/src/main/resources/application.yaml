@@ -1,0 +1,19 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: rayv-mongodb
+
+  data:
+    mongodb:
+      uri: mongodb://root:root@localhost:27017/broada
+
+logging:
+  #file: yzq.log
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core: DEBUG

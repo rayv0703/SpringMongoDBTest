@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用Echarts统计</title>
+</head>
+<script type="text/javascript" src="../static/js/echarts.common.min.js"></script>
+<script src="../static/js/vue.min.js"></script>
+<script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
+<body>
+
+<div id="chartmain" style="width:600px; height: 400px;"></div>
+
+<div id="app">
+    <p>{{ message }}</p>
+</div>
+
+<script type="text/javascript">
+    //指定图标的配置和数据
+    var option = {
+        title:{
+            text:'ECharts 数据统计'
+        },
+        series:[{
+            name:'访问量',
+            type:'pie',
+            radius:'60%',
+            data:[
+                {value:0.007746126936531734,name:'Android'},
+                {value:0.01999000499750125,name:'IOS'},
+                //{value:360,name:'PC'},
+                {value:0.972263868065967,name:'Ohter'}
+            ]
+        }]
+    };
+
+    //初始化echarts实例
+    var myChart = echarts.init(document.getElementById('chartmain'));
+
+    //使用制定的配置项和数据显示图表
+    myChart.setOption(option);
+
+
+    new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue.js!'
+        },
+        methods:{
+            get:function(){
+                //发送get请求
+                this.$http.get('localhost:8888/computer/findLast').then(function(res){
+                    document.write(res.body);
+                },function(){
+                    console.log('请求失败处理');
+                });
+            }
+        }
+    })
+</script>
+</body>
+
+<script>
+    var myChart = echarts.init(document.getElementById('chartmain'));
+    myChart.setOption(option);
+</script>
+</html>
