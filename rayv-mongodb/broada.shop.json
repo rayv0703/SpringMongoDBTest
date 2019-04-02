@@ -1,0 +1,220 @@
+{ 
+    "_id" : NumberLong(1), 
+    "locs" : [
+        114.4104194641, 
+        30.4913306776
+    ], 
+    "telephone" : "87111111", 
+    "shopName" : "保利时代海底捞", 
+    "address" : "保利时代4楼101号", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}
+{ 
+    "_id" : NumberLong(2), 
+    "locs" : [
+        114.3749284744, 
+        30.4882150284
+    ], 
+    "telephone" : "88882980", 
+    "shopName" : "楚平路建行食堂", 
+    "address" : "中国湖北省武汉市洪山区楚平路建设银行数据中心", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}
+{ 
+    "_id" : NumberLong(3), 
+    "locs" : [
+        114.3642425537, 
+        30.8733508893
+    ], 
+    "telephone" : "88883932", 
+    "shopName" : "黄陂区老街烧烤", 
+    "address" : "中国湖北省武汉市黄陂区西寺大道", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}
+{ 
+    "_id" : NumberLong(4), 
+    "locs" : [
+        114.389705, 
+        30.484204
+    ], 
+    "telephone" : "88888607", 
+    "shopName" : "么肆烤肉(财大店)", 
+    "address" : "南湖大道民政小区xxx号", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}
+{ 
+    "_id" : NumberLong(5), 
+    "locs" : [
+        114.421689, 
+        30.479812
+    ], 
+    "telephone" : "88880983", 
+    "shopName" : "大米先生(光谷天地二期)", 
+    "address" : "光谷天地二期xxx号", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}
+{ 
+    "_id" : NumberLong(6), 
+    "locs" : [
+        114.418195, 
+        30.497232
+    ], 
+    "telephone" : "88889036", 
+    "shopName" : "外婆湾农家菜", 
+    "address" : "关山大道金地太阳城xxx号", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}
+{ 
+    "_id" : NumberLong(7), 
+    "locs" : [
+        114.413048, 
+        30.508103
+    ], 
+    "telephone" : "88888610", 
+    "shopName" : "和记鲶鱼", 
+    "address" : "光谷步行街意大利风情街xxx号", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}
+{ 
+    "_id" : NumberLong(8), 
+    "locs" : [
+        114.392135, 
+        30.511086
+    ], 
+    "telephone" : "88889738", 
+    "shopName" : "袁老四火锅店", 
+    "address" : "虎泉街xxx号", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}
+{ 
+    "_id" : NumberLong(9), 
+    "locs" : [
+        114.402169, 
+        30.538096
+    ], 
+    "telephone" : "88883115", 
+    "shopName" : "红砖婆婆烧烤", 
+    "address" : "八一路xxx号", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}
+{ 
+    "_id" : NumberLong(10), 
+    "locs" : [
+        114.360852, 
+        30.534787
+    ], 
+    "telephone" : "88888438", 
+    "shopName" : "小川料理", 
+    "address" : "珞狮路xxx号", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}
+{ 
+    "_id" : NumberLong(11), 
+    "locs" : [
+        114.42424, 
+        30.499834
+    ], 
+    "telephone" : "88885851", 
+    "shopName" : "早餐热干面店", 
+    "address" : "新景路xxx号", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}
+{ 
+    "_id" : NumberLong(12), 
+    "locs" : [
+        114.39085, 
+        30.485037
+    ], 
+    "telephone" : "88883056", 
+    "shopName" : "肥肥虾庄(财大店)", 
+    "address" : "南湖大道政苑小区xxx号", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}
+{ 
+    "_id" : NumberLong(13), 
+    "locs" : [
+        114.28971, 
+        30.585461
+    ], 
+    "telephone" : "88882498", 
+    "shopName" : "田师傅虾蟹", 
+    "address" : "前进街xxx号", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}
+{ 
+    "_id" : NumberLong(14), 
+    "locs" : [
+        114.410416, 
+        30.650765
+    ], 
+    "telephone" : "88880459", 
+    "shopName" : "红钢城炸炸", 
+    "address" : "红钢一街xxx号", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}
+{ 
+    "_id" : NumberLong(15), 
+    "locs" : [
+        114.419264, 
+        30.475552
+    ], 
+    "telephone" : "88884415", 
+    "shopName" : "重庆酒家", 
+    "address" : "华夏学院番茄鱼xxx号", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}
+{ 
+    "_id" : NumberLong(16), 
+    "locs" : [
+        114.438474, 
+        30.520202
+    ], 
+    "telephone" : "88885682", 
+    "shopName" : "华科东食堂", 
+    "address" : "华中科技大学东食堂xxx号", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}
+{ 
+    "_id" : NumberLong(17), 
+    "locs" : [
+        114.362909, 
+        30.532684
+    ], 
+    "telephone" : "88887294", 
+    "shopName" : "西湖烤鱼", 
+    "address" : "银泰创意城xxx号", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}
+{ 
+    "_id" : NumberLong(18), 
+    "locs" : [
+        114.895855, 
+        30.443009
+    ], 
+    "telephone" : "88881361", 
+    "shopName" : "陈记碳烤肉", 
+    "address" : "黄州城区xxx号", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}
+{ 
+    "_id" : NumberLong(19), 
+    "locs" : [
+        114.896327, 
+        30.460226
+    ], 
+    "telephone" : "88882639", 
+    "shopName" : "商城酸菜鱼", 
+    "address" : "黄州城区xxx号", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}
+{ 
+    "_id" : NumberLong(20), 
+    "locs" : [
+        114.883355, 
+        30.355822
+    ], 
+    "telephone" : "88882748", 
+    "shopName" : "鄂州辣子鱼", 
+    "address" : "鄂州市xxx号", 
+    "_class" : "com.broada.one.data.domain.Shop"
+}

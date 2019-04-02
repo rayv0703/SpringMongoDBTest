@@ -7,6 +7,7 @@ import com.broada.one.data.domain.EmpInf;
 import com.broada.one.service.inf.EmpService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.log4j.Log4j2;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @Api(value = "使用MongoDB进行简单的增删改查", tags = {"使用MongoDB进行简单的增删改查"})
 @RestController
 @RequestMapping("/emp")
+@Log4j2
 public class EmpController {
 
     @Autowired
@@ -32,8 +34,7 @@ public class EmpController {
             empService.save(emp);
             //System.out.println(emp.toString());
         } catch (Exception e) {
-            e.printStackTrace();
-            // TODO: handle exception
+           logger.error("新增员工信息错误");
         }
     }
 
@@ -58,8 +59,7 @@ public class EmpController {
         try {
             empService.update(emp);
         } catch (Exception e) {
-            e.printStackTrace();
-            // TODO: handle exception
+            logger.error("修改员工信息错误");
         }
     }
 
@@ -69,8 +69,7 @@ public class EmpController {
         try {
             empService.deleteById(id);
         } catch (Exception e) {
-            e.printStackTrace();
-            // TODO: handle exception
+            logger.error("根据ID删除员工出错");
         }
     }
     @ApiOperation(value = "进行复杂查询",notes = "")
