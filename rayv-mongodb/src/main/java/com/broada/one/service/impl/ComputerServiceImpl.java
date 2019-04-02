@@ -18,10 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 @Transactional
@@ -35,7 +32,7 @@ public class ComputerServiceImpl implements ComputerService {
     /**
      * 定时存储电脑相关信息
      */
-    @Scheduled(fixedRate = 5000)
+    //@Scheduled(fixedRate = 5000)
     private void storeComputerInfo() throws SigarException {
         Sigar sigar = new Sigar();
         CpuPerc cpuPerc = sigar.getCpuPerc();
@@ -85,25 +82,27 @@ public class ComputerServiceImpl implements ComputerService {
     @Override
     public A003_Response findLast5() {
         A003_Response outVo = new A003_Response();
-        NumberFormat per = NumberFormat.getPercentInstance();
-        double cpuSumCombined = 0;
-        double cpuSumIlde = 0;
+        //NumberFormat per = NumberFormat.getPercentInstance();
         //新增查询条件
         Query query = new Query();
         query.with(new Sort(new Sort.Order(Sort.Direction.DESC, "_id"), new Sort.Order(Sort.Direction.DESC, "-1"))).limit(5);
         List<ComputerInfo> list = template.find(query, ComputerInfo.class);
-        for (ComputerInfo info : list) {
-            cpuSumCombined += info.getCpuCombined();
-            cpuSumIlde += info.getCpuIdle();
-        }
-        ComputerInfo lastComputer = list.get(4);
-        BeanUtils.copyProperties(lastComputer,outVo);
-
-        String cpuCombinedStr = per.format(cpuSumCombined / (list.size()));
-        String cpuIdleStr = per.format(cpuSumIlde / (list.size()));
-        outVo.setCpuAvgCombined(cpuCombinedStr);
-        outVo.setCpuAvgIdle(cpuIdleStr);
+        //通过lambda优化计算 平均值
+        DoubleSummaryStatistics cpuCombined = list.stream().mapToDouble(x -> x.getCpuCombined()).summaryStatistics();
+        DoubleSummaryStatistics cpuIdle = list.stream().mapToDouble(x -> x.getCpuIdle()).summaryStatistics();
+        DoubleSummaryStatistics memUsed = list.stream().mapToDouble(x -> x.getMemUsed()).summaryStatistics();
+        DoubleSummaryStatistics memFree = list.stream().mapToDouble(x -> x.getMemFree()).summaryStatistics();
+        //格式化百分比,然后封装
+        outVo.setCpuAvgCombined(toPercent(cpuCombined.getAverage()));
+        outVo.setCpuAvgIdle(toPercent(cpuIdle.getAverage()));
+        outVo.setMemAvgFree(toPercent(memFree.getAverage()/(memUsed.getAverage()+memFree.getAverage())));
+        outVo.setMemAvgUsed(toPercent(memUsed.getAverage()/(memUsed.getAverage()+memFree.getAverage())));
 
         return outVo;
+    }
+
+    private String toPercent(Double num){
+        NumberFormat per = NumberFormat.getPercentInstance();
+        return per.format(num);
     }
 }
