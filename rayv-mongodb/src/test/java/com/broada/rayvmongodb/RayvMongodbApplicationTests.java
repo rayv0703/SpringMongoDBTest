@@ -7,11 +7,14 @@ import org.bson.types.ObjectId;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.geo.Point;
+import org.springframework.data.geo.*;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.geo.Sphere;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.NearQuery;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.gridfs.GridFsTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -19,6 +22,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Iterator;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -30,6 +34,8 @@ public class RayvMongodbApplicationTests {
 
     @Autowired
     MongoTemplate mongoTemplate;
+    @Value("${shop.telephone}")
+    private int telephone;
 
     @Test
     public void testStorePic() throws FileNotFoundException {
@@ -53,9 +59,12 @@ public class RayvMongodbApplicationTests {
         List<Shop> shops = mongoTemplate.find(new Query(Criteria.where("locs").within(sphere)), Shop.class);
         shops.forEach(System.out::println);
     }
+
+
+
     @Test
     public void test03(){
-        System.out.println("HelloWorld");
+
     }
     @Test
     public void test04(){
@@ -66,4 +75,27 @@ public class RayvMongodbApplicationTests {
         empInf.setAge(19);
         mongoTemplate.save(empInf);
     }
+    @Test
+    public void test05(){
+        Point point = new Point(114.4114816189, 30.4913537904);
+        NearQuery query = NearQuery.near(point).num(10).query(new Query()).maxDistance(new Distance(5,Metrics.KILOMETERS));
+        GeoResults<Shop> results = mongoTemplate.geoNear(query, Shop.class);
+        Iterator<GeoResult<Shop>> iterator = results.iterator();
+        while (iterator.hasNext()){
+            GeoResult<Shop> next = iterator.next();
+            Shop shop = next.getContent();
+            System.out.println(shop.getShopName()+" 商铺距离: "+next.getDistance()+"公里");
+        }
+    }
+    @Test
+    public void test06(){
+        Shop shop = new Shop();
+        shop.setLocs(new Double[]{114.883355,30.355822});
+        shop.setShopName("鄂州辣子鱼");
+        shop.setAddress("鄂州市xxx号");
+        shop.setTelephone(telephone+"");
+        mongoTemplate.save(shop);
+    }
+
+
 }

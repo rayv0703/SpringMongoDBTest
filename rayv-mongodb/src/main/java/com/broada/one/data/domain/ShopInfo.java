@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Document("shop")
-public class Shop {
+public class ShopInfo {
     @Id
     @AutoIncKey
     private Long id;
@@ -15,4 +15,5 @@ public class Shop {
     private String telephone;
     private String shopName;
     private String address;
+    private Double distance;
 }
