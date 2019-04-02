@@ -21,6 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.function.Predicate;
 
 @Transactional
 @Service
@@ -29,8 +30,8 @@ public class BBSServiceImpl implements BBSService {
     @Autowired
     private MongoTemplate mongoTemplate;
 
-    @Autowired
-    private GridFsTemplate gdsTemplate;
+    //@Autowired
+    //private GridFsTemplate gdsTemplate;
 
     static Logger logger = LogManager.getLogger(EmpController.class);
 
@@ -63,6 +64,7 @@ public class BBSServiceImpl implements BBSService {
             //如果前端没有传入楼层id
             if (StringUtils.isEmpty(review.getLevel())) {
                 review.setLevel(""+(reviewList.size()+1));
+
             }
             reviewList.add(review);
             bbsInfo.setReviewList(reviewList);
@@ -72,7 +74,6 @@ public class BBSServiceImpl implements BBSService {
             list.add(review);
             bbsInfo.setReviewList(list);
         }
-
         try {
             mongoTemplate.save(bbsInfo);
         } catch (Exception e) {

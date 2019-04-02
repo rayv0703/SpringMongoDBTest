@@ -31,12 +31,21 @@ public class EmpServiceImpl implements EmpService {
     @Autowired
     private MongoTemplate mongoTemplate;
 
+    /**
+     * 使用MongoDB添加员工数据
+     * @param emp
+     */
     @Override
     public void save(EmpInf emp) {
         //repo.save(emp);
         mongoTemplate.save(emp);
     }
 
+    /**
+     * 使用MongoDB查询数据
+     * @param id
+     * @return
+     */
     @Override
     public EmpInf findOne(long id) {
         EmpInf emp = new EmpInf();
@@ -47,6 +56,10 @@ public class EmpServiceImpl implements EmpService {
         return emp;
     }
 
+    /**
+     * 使用MongoDB修改员工数据
+     * @param emp
+     */
     @Override
     public void update(EmpInf emp) {
         if (repo.existsById(emp.getId())) {
@@ -54,6 +67,10 @@ public class EmpServiceImpl implements EmpService {
         }
     }
 
+    /**
+     * 使用MongoDB删除员工数据
+     * @param id
+     */
     @Override
     public void deleteById(long id) {
         repo.deleteById(id);
