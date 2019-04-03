@@ -1,4 +1,4 @@
-package com.broada.application;
+package com.broada.config;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

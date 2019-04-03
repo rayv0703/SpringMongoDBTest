@@ -1,6 +1,6 @@
 package com.broada.rayvmongodb;
 
-import com.broada.application.RayvMongodbApplication;
+import com.broada.RayvMongodbApplication;
 import com.broada.one.data.domain.EmpInf;
 import com.broada.one.data.util.PoiUtil;
 import org.junit.Test;

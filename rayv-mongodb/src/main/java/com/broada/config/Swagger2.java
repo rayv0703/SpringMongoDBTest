@@ -1,6 +1,7 @@
-package com.broada.application;
+package com.broada.config;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -12,6 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
+@ComponentScan("com.broada.one.controller")
 public class Swagger2 {
 
     @Bean
@@ -19,7 +21,7 @@ public class Swagger2 {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.broada.one"))
+                .apis(RequestHandlerSelectors.basePackage("com.broada.one.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
