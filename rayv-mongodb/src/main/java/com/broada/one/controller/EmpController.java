@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@Api(value = "使用MongoDB进行简单的增删改查", tags = {"使用MongoDB进行简单的增删改查"})
+@Api(value = "管理员工的增删改查", tags = {"管理员工的增删改查"})
 @RestController
 @RequestMapping("/emp")
 @Log4j2
@@ -42,7 +42,6 @@ public class EmpController {
     @GetMapping(value = "/{id}")
     public EmpInf findOne(@PathVariable long id) {
         EmpInf emp = new EmpInf();
-
         try {
             emp = empService.findOne(id);
             logger.info(emp.toString());

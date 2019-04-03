@@ -1,6 +1,6 @@
 package com.broada.one.data.domain;
 
-import com.broada.application.AutoIncKey;
+import com.broada.config.AutoIncKey;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,6 +1,6 @@
 package com.broada.rayvmongodb;
 
-import com.broada.application.RayvMongodbApplication;
+import com.broada.RayvMongodbApplication;
 import com.broada.one.data.domain.EmpInf;
 import com.broada.one.data.domain.Shop;
 import org.bson.types.ObjectId;
@@ -12,7 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.geo.*;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.geo.Sphere;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.NearQuery;
 import org.springframework.data.mongodb.core.query.Query;

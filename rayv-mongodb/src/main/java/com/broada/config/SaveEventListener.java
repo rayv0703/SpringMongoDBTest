@@ -1,4 +1,4 @@
-package com.broada.application;
+package com.broada.config;
 
 import com.broada.one.data.domain.SeqInfo;
 import org.springframework.beans.factory.annotation.Autowired;

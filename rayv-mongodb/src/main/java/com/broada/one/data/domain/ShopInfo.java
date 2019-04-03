@@ -1,6 +1,6 @@
 package com.broada.one.data.domain;
 
-import com.broada.application.AutoIncKey;
+import com.broada.config.AutoIncKey;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

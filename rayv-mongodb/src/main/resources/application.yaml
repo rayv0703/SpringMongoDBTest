@@ -10,7 +10,7 @@ spring:
       uri: mongodb://root:root@localhost:27017/broada
 
 logging:
-  #file: yzq.log
+  file: yzq.log
   level:
     org:
       springframework:
