@@ -61,19 +61,8 @@ public class RayvMongodbApplicationTests {
 
 
 
-    @Test
-    public void test03(){
 
-    }
-    @Test
-    public void test04(){
 
-        EmpInf empInf = new EmpInf();
-        empInf.setName("李博文");
-        empInf.setAddr("湖北武汉市");
-        empInf.setAge(19);
-        mongoTemplate.save(empInf);
-    }
     @Test
     public void test05(){
         Point point = new Point(114.4114816189, 30.4913537904);
@@ -86,15 +75,5 @@ public class RayvMongodbApplicationTests {
             System.out.println(shop.getShopName()+" 商铺距离: "+next.getDistance()+"公里");
         }
     }
-    @Test
-    public void test06(){
-        Shop shop = new Shop();
-        shop.setLocs(new Double[]{114.883355,30.355822});
-        shop.setShopName("鄂州辣子鱼");
-        shop.setAddress("鄂州市xxx号");
-        shop.setTelephone(telephone+"");
-        mongoTemplate.save(shop);
-    }
-
 
 }

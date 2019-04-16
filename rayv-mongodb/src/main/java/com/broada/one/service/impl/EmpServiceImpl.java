@@ -15,6 +15,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,8 +38,7 @@ public class EmpServiceImpl implements EmpService {
      */
     @Override
     public void save(EmpInf emp) {
-        //repo.save(emp);
-        mongoTemplate.save(emp);
+        repo.insert(emp);
     }
 
     /**
@@ -62,9 +62,7 @@ public class EmpServiceImpl implements EmpService {
      */
     @Override
     public void update(EmpInf emp) {
-        if (repo.existsById(emp.getId())) {
-            repo.save(emp);
-        }
+        mongoTemplate.save(emp);
     }
 
     /**
@@ -125,12 +123,5 @@ public class EmpServiceImpl implements EmpService {
         return outVo;
     }
 
-    @Override
-    public void saveEmpInfoBt(A002_Request request) {
-        List<EmpInf> empInfList = request.getEmpInfList();
-        if (null != empInfList && !empInfList.isEmpty()) {
-            mongoTemplate.insertAll(empInfList);
-        }
-    }
 
 }

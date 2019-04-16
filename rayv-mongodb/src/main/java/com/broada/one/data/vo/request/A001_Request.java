@@ -9,7 +9,6 @@ public class A001_Request {
     private String name;
     private Integer ageBeg;
     private Integer ageEnd;
-    private Integer age;
     private String addr;
     private int page;
     private int size;
