@@ -38,7 +38,7 @@ public class BBSServiceImpl implements BBSService {
     @Override
     public void saveBBS(A004_Request request) {
         BBSInfo bbsInfo = new BBSInfo();
-        BeanUtils.copyProperties(request,bbsInfo);
+        BeanUtils.copyProperties(request, bbsInfo);
         //设置唯一主键,可以根据主键进行查找
         if (StringUtils.isEmpty(request.getId())) {
             bbsInfo.setId(UUID.randomUUID().toString());
@@ -49,36 +49,29 @@ public class BBSServiceImpl implements BBSService {
     @Override
     public void saveReview(A003_Request request) {
         Review review = new Review();
-        BeanUtils.copyProperties(request,review);
+        BeanUtils.copyProperties(request, review);
         //新增查询条件
         Query query = new Query();
         Criteria criteria = new Criteria();
         criteria.and("id").is(request.getId());
         query.addCriteria(criteria);
         BBSInfo bbsInfo = mongoTemplate.findOne(query, BBSInfo.class);
-        if (null==bbsInfo) {
-            logger.info("id为"+request.getId()+"结果为空");
+        if (null == bbsInfo) {
+            logger.info("id为" + request.getId() + "结果为空");
         }
         List<Review> reviewList = bbsInfo.getReviewList();
-        if (null!=reviewList && !reviewList.isEmpty()){
-            //如果前端没有传入楼层id
-            if (StringUtils.isEmpty(review.getLevel())) {
-                review.setLevel(""+(reviewList.size()+1));
+        if (null != reviewList && !reviewList.isEmpty()) {
 
-            }
+            review.setLevel("" + (reviewList.size() + 1));
             reviewList.add(review);
             bbsInfo.setReviewList(reviewList);
-        }else {
+        } else {
             review.setLevel("1");
-            List<Review> list=new ArrayList<Review>();
+            List<Review> list = new ArrayList<Review>();
             list.add(review);
             bbsInfo.setReviewList(list);
         }
-        try {
-            mongoTemplate.save(bbsInfo);
-        } catch (Exception e) {
-            logger.error("传入评论出错");
-        }
+        mongoTemplate.save(bbsInfo);
     }
 
     @Override
@@ -91,10 +84,10 @@ public class BBSServiceImpl implements BBSService {
         query.addCriteria(criteria);
         BBSInfo bbsInfo = mongoTemplate.findOne(query, BBSInfo.class);
 
-        if (null==bbsInfo) {
-            logger.info("id为"+id+"结果为空");
+        if (null == bbsInfo) {
+            logger.info("id为" + id + "结果为空");
         }
-        BeanUtils.copyProperties(bbsInfo,outVo);
+        BeanUtils.copyProperties(bbsInfo, outVo);
         return outVo;
     }
 }

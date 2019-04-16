@@ -1,11 +1,14 @@
 package com.broada.one.service.impl;
 
+import com.broada.one.controller.EmpController;
 import com.broada.one.data.domain.Shop;
 import com.broada.one.data.domain.ShopInfo;
 import com.broada.one.data.vo.request.A005_Request;
 import com.broada.one.data.vo.response.A005_Response;
 import com.broada.one.service.inf.ShopService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.geo.*;
@@ -21,10 +24,11 @@ import java.util.List;
 
 @Service
 @Transactional
-@Slf4j
 public class ShopServiceImpl implements ShopService {
     @Autowired
     private MongoTemplate mongoTemplate;
+
+    static Logger logger = LogManager.getLogger(EmpController.class);
 
     private Integer num = Integer.MAX_VALUE;
     private Double maxDistance = Double.MAX_VALUE;
@@ -34,7 +38,7 @@ public class ShopServiceImpl implements ShopService {
         A005_Response outVo = new A005_Response();
         int count = 0;
         if (null == request.getLon() && null == request.getLat()) {
-            log.error("经纬度值为空");
+            logger.error("经纬度值为空");
         }
         Point point = new Point(request.getLon(), request.getLat());
         if (null !=request.getNum()){

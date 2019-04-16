@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 @Api(value = "管理员工的增删改查", tags = {"管理员工的增删改查"})
 @RestController
 @RequestMapping("/emp")
-@Log4j2
 public class EmpController {
 
     @Autowired
@@ -82,13 +81,5 @@ public class EmpController {
         }
         return outVo;
     }
-    @ApiOperation(value = "批量进行添加员工信息",notes = "")
-    @RequestMapping(value = "saveEmpInfoBt",method = RequestMethod.POST)
-    public void saveEmpInfoBt(@RequestBody A002_Request request){
-        try {
-            empService.saveEmpInfoBt(request);
-        } catch (Exception e) {
-            logger.info("批量导入emp数据出错");
-        }
-    }
+
 }

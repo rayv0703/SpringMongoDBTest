@@ -17,5 +17,4 @@ public interface EmpService {
 
     A001_Response queryListByPage(A001_Request request);
 
-    void saveEmpInfoBt(A002_Request request);
 }

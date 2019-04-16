@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @NoArgsConstructor
 public class EmpInf {
     @Id
-    @AutoIncKey
+    //@AutoIncKey
     private Long id = 0l;
     @Field
     private String name;

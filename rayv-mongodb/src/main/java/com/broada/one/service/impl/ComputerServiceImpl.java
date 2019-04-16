@@ -64,7 +64,7 @@ public class ComputerServiceImpl implements ComputerService {
         computer.setFileSysMsgMap(fileSysMsgMap);
         template.save(computer);
 
-        logger.info("完成一次储存计算机信息,computerInfo:" + computer.toString());
+        //logger.info("完成一次储存计算机信息,computerInfo:" + computer.toString());
     }
 
     @Override
